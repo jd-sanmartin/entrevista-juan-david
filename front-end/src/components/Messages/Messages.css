@@ -1,0 +1,10 @@
+.messages__container {
+  background-color: #CBE4DE;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: 0.3rem;
+  padding: 0.5rem 0.5rem;
+  overflow-y: auto;
+  overflow-x: hidden;
+}

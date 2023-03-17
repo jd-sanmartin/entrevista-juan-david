@@ -1,0 +1,8 @@
+.message-item__container {
+  background: linear-gradient(15deg, #2C3333, #0E8388);
+  border-radius: 5px;
+  min-height: 3rem;
+  padding: 0.5rem 1rem;
+  color: white;
+  font-weight: bold;
+}

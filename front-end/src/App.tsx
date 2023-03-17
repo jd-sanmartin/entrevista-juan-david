@@ -9,20 +9,30 @@ import { fetchMessages, submitMessage } from './utils/api';
 
 function App() {
   const [messages, setMessages] = useState<IMessage[]>([]);
+  const [errorText, setErrorText] = useState('');
 
   useEffect(() => {
     (async () => {
-      setMessages(await fetchMessages());
+      try{
+        setMessages(await fetchMessages());
+      } catch(ex) {
+        setErrorText('An error has occurred');
+      }
     })();
   }, []);
 
   const onSubmit = async (message: IMessage) => {
-    setMessages(await submitMessage(message));
+    setErrorText('');
+    try {
+      setMessages(await submitMessage(message));
+    } catch (ex) {
+      setErrorText('An error has occurred');
+    }
   };
 
   return (
     <>
-      <Form {...{onSubmit}} />
+      <Form {...{onSubmit, errorText}} />
       <Messages {...{messages}} />
     </>
   )
