@@ -1,5 +1,5 @@
 export interface IMessage {
-  message: string;
+  text: string;
 }
 
 const API_MESSAGES_ENDPOINT = 'http://localhost:3000/messages/'
@@ -12,8 +12,7 @@ export async function fetchMessages(): Promise<IMessage[]> {
   }
 
   const data = await response.json();
-  console.log({data});
-  
+
   return data;
 }
 
@@ -31,6 +30,5 @@ export async function submitMessage(message: IMessage): Promise<IMessage[]> {
   }
 
   const data = await response.json();
-  console.log({data});
   return data;
 }

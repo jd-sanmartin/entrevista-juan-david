@@ -11,13 +11,13 @@ export default function Form({ onSubmit }: FormProps) {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    const message = inputRef.current?.value;
+    const text = inputRef.current?.value;
 
-    if (!message) {
+    if (!text) {
       return;
     }
     
-    onSubmit({ message });
+    onSubmit({ text });
     inputRef.current!.value = '';
   };
 

@@ -1,4 +1,5 @@
 import { IMessage } from "../../utils/api";
+import MessageItem from "./MessageItem/MessageItem";
 
 interface TextLogsProps {
   messages: IMessage[];
@@ -6,14 +7,11 @@ interface TextLogsProps {
 
 export default function TextLogs({ messages }: TextLogsProps) {
   return (
-    <ul>
+    <div>
       {
-        messages.map(({ message }, i) => (
-          <li key={`message-${i}`}>
-            { message }
-          </li>
-        ))
-      }
-    </ul>
+        messages.map((message, i) => (
+          <MessageItem {...{message}} />
+        ))}
+    </div>
   )
 }
