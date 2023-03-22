@@ -1,6 +1,4 @@
-export interface IMessage {
-  text: string;
-}
+import IMessage from "./interfaces/IMessage";
 
 const API_MESSAGES_ENDPOINT = 'http://localhost:3000/messages/'
 
@@ -11,9 +9,7 @@ export async function fetchMessages(): Promise<IMessage[]> {
     throw new Error('Failed to fetch data');
   }
 
-  const data = await response.json();
-
-  return data;
+  return await response.json();
 }
 
 export async function submitMessage(message: IMessage): Promise<IMessage[]> {
@@ -29,6 +25,5 @@ export async function submitMessage(message: IMessage): Promise<IMessage[]> {
     throw new Error('Failed to send data');
   }
 
-  const data = await response.json();
-  return data;
+  return await response.json();
 }

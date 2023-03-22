@@ -1,5 +1,5 @@
 import { useRef } from 'react';
-import { IMessage } from '../../utils/api';
+import IMessage from '../../utils/interfaces/IMessage';
 
 import './Form.css';
 
@@ -29,7 +29,9 @@ export default function Form({ onSubmit, errorText }: FormProps) {
     <form onSubmit={handleSubmit} className='form__container'>
       <input className='form__textbox' type='text' placeholder='Type a message' ref={inputRef} />
       <button className='form__submit-button' type='submit'>Send</button>
-      <div className='break-sm'></div>
+
+      <div className='break-sm'></div> {/*Line break*/}
+
       {errorText && <p className='form__text-error'>{errorText}</p>}
     </form>
   );

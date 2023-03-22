@@ -1,4 +1,4 @@
-import { IMessage } from "../../../utils/api";
+import IMessage from "../../../utils/interfaces/IMessage";
 import './MessageItem.css';
 
 interface MessageItemProps {

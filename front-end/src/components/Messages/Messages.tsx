@@ -1,15 +1,15 @@
 import { useRef, useEffect } from 'react';
 
-import { IMessage } from "../../utils/api";
+import IMessage from "../../utils/interfaces/IMessage";
 import MessageItem from "./MessageItem/MessageItem";
 
 import './Messages.css';
 
-interface TextLogsProps {
+interface MessagesProps {
   messages: IMessage[];
 }
 
-export default function Messages({ messages }: TextLogsProps) {
+export default function Messages({ messages }: MessagesProps) {
   const bottomRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {

@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react';
-import './App.css';
 
 import Form from './components/Form/Form';
 import Messages from './components/Messages/Messages';
-import { IMessage } from './utils/api';
 
+import IMessage from './utils/interfaces/IMessage';
 import { fetchMessages, submitMessage } from './utils/api';
+
+import './App.css';
 
 function App() {
   const [messages, setMessages] = useState<IMessage[]>([]);
@@ -13,8 +14,9 @@ function App() {
 
   useEffect(() => {
     (async () => {
-      try{
-        setMessages(await fetchMessages());
+      try {
+        const messages = await fetchMessages();
+        setMessages(messages);
       } catch(ex) {
         setErrorText('An error has occurred');
       }
@@ -23,8 +25,10 @@ function App() {
 
   const onSubmit = async (message: IMessage) => {
     setErrorText('');
+
     try {
-      setMessages(await submitMessage(message));
+      const messages = await submitMessage(message);
+      setMessages(messages);
     } catch (ex) {
       setErrorText('An error has occurred');
     }
@@ -32,8 +36,8 @@ function App() {
 
   return (
     <>
-      <Form {...{onSubmit, errorText}} />
-      <Messages {...{messages}} />
+      <Form {...{ onSubmit, errorText }} />
+      <Messages {...{ messages }} />
     </>
   )
 }
